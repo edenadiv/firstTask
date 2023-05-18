@@ -98,16 +98,16 @@ const products = [
 ]
 
 function goHome() {
-    location.replace('../index.html')
+    location.replace('./index.html')
 }
 
 function goMeals() {
-    location.replace('../meals.html')
+    location.replace('./meals.html')
 }
 
 function goMealsDelivery() {
     const isDelivery = true; // to use later
-    location.replace('../index.html')
+    location.replace('./index.html')
 }
 
 const getProduct = (product) => {
