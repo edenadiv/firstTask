@@ -27,7 +27,7 @@
       $_SESSION["user_type"] = $row['type'];
       $_SESSION["user_name"] = $row['first_name'];
 
-      if($row['type'] == "admin") {
+      if($row['type'] == "user") {
         header('Location:'. URL .'home.php');
       } else if ($row['type'] == "manager") {
         header('Location:'. URL .'manager.php');
