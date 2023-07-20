@@ -21,7 +21,7 @@ body {
 
 a {
   text-decoration: none !important;
-  color: #000 !important;
+  /* color: #000 !important; */
 }
 
 a:hover {
@@ -540,6 +540,14 @@ h1 {
   border-radius: 6px;
 }
 
+.manager-nav-row-hover{
+  display: flex;
+  font-size: 1.3em;
+  background-color: #a5a6a530;
+  color: var(--blue);
+  border-radius: 6px;
+}
+
 .svg-icon{
   width: 70%;
   height: 70%;
@@ -588,9 +596,34 @@ h1 {
   align-items: end;
   font-size: 1.5em;
   color: var(--grey);
+  margin-top: 1vh;
 }
 
 .manager-list-item > div > img{
+  height: 10vh;
+}
+
+/* Manager Settings */
+
+#settings-form > div > div > form > :first-child{
+  display: flex;
+}
+
+#settings-form > div > div > form > :nth-child(2){
+  display: flex;
+}
+#settings-form > div > div > form > :nth-child(3){
+  display: flex;
+}
+#settings-form > div > div > form > :nth-child(4){
+  display: flex;
+}
+
+.hover{
+  background-color: var(--blue);
+}
+
+#manager-logo{
   height: 10vh;
 }
 

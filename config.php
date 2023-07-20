@@ -1,3 +1,3 @@
 <?php
-    define("URL", "http://localhost/web1/php/posts-login-session/2022/")
+    define("URL", "http://127.0.0.1:5500/")
 ?>

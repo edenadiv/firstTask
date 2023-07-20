@@ -38,7 +38,7 @@
 <body>
     <header id="manager-header">
         <section id="manager-header-wrapper">
-            <a href="#"><img id="manager-logo" src="images/logo.png" alt=""></a>
+            <a href="manager.php"><img id="manager-logo" src="images/logo.png" alt=""></a>
             <div id="manager-prefences-container">
                 <a href="manager_settings.php" class="manager-prefences-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -102,91 +102,28 @@
         </aside>
         <section id="manager-main-area">
             <section id="manager-main-section-1">
-                <div id="manager-main-area-container">
-                    <div id="manager-cards-container">
-                        <div id="manager-card-row-1">
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 1";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
+                <div>
+                    <script>
 
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 4";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
+                    </script>
+                <?php
+                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = ". $_GET['id'];
 
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 5";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
+                    $result = mysqli_query($connection,$query);
+                    $row = mysqli_fetch_array($result);
 
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                        <div id="manager-card-row-2">
-                        <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 6";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
+                        if(is_array($row)) {
+                            echo    '<div>';
+                            echo        '<div class="meal_id_manager" style="display:none;">'.$row['meal_id'].'</div>';
+                            echo        '<img src="'.$row['photo_src'].'" alt="">';
+                            echo        '<div>'.$row['name'].'</div>';
+                            echo        '<div> '.$row['description'].' </div>';
+                            echo        '<div> '.$row['dish_type'].' </div>';
+                            echo        '<div> '.$row['ingredients'].' </div>';
+                            echo    '</div>';
+                        }
 
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 7";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 8";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="manager-main-aside">
-                    <div class="manager-prefences-icon hover"></div>
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
+                ?>
                 </div>
             </section>
             <div id="manager-main-bottom">

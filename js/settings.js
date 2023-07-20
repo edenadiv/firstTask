@@ -1,0 +1,1 @@
+document.querySelectorAll('.manager-prefences-icon')[0].classList.add('hover')

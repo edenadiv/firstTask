@@ -38,9 +38,9 @@
 <body>
     <header id="manager-header">
         <section id="manager-header-wrapper">
-            <a href="#"><img id="manager-logo" src="images/logo.png" alt=""></a>
+            <a href="manager.php"><img id="manager-logo" src="images/logo.png" alt=""></a>
             <div id="manager-prefences-container">
-                <a href="manager_settings.php" class="manager-prefences-icon">
+                <a href="#" class="manager-prefences-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="svg-icon bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -101,100 +101,66 @@
             </div>
         </aside>
         <section id="manager-main-area">
-            <section id="manager-main-section-1">
-                <div id="manager-main-area-container">
-                    <div id="manager-cards-container">
-                        <div id="manager-card-row-1">
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 1";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 4";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 5";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                        </div>
-                        <div id="manager-card-row-2">
-                        <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 6";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 7";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
-                            <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 8";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
-                            </div>
+            <div id="manager-list-area">
+                <div id="settings-form" class="container mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-md-6">
+                            <form>
+                                <!-- First row -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="firstName">First Name:</label>
+                                        <input type="text" class="form-control" id="firstName"
+                                            placeholder="Enter your first name">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="lastName">Last Name:</label>
+                                        <input type="text" class="form-control" id="lastName"
+                                            placeholder="Enter your last name">
+                                    </div>
+                                </div>
+                                <!-- Second row -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="email">Email:</label>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="Enter your email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" id="password"
+                                            placeholder="Enter your password">
+                                    </div>
+                                </div>
+                                <!-- Third row -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="age">Age:</label>
+                                        <input type="number" class="form-control" id="age" placeholder="Enter your age">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="restaurantName">Restaurant Name:</label>
+                                        <input type="text" class="form-control" id="restaurantName"
+                                            placeholder="Enter restaurant name">
+                                    </div>
+                                </div>
+                                <!-- Fourth row -->
+                                <div class="form-row">
+                                    <div class="form-group col-md-12">
+                                        <label for="restaurantAddress">Restaurant Address:</label>
+                                        <input type="text" class="form-control" id="restaurantAddress"
+                                            placeholder="Enter restaurant address">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-                <div id="manager-main-aside">
-                    <div class="manager-prefences-icon hover"></div>
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
-                </div>
-            </section>
-            <div id="manager-main-bottom">
-
             </div>
         </section>
     </main>
-    <script src="js/manager-index.js"></script>
+    <script src="js/settings.js"></script>
 </body>
 
 </html>

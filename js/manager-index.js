@@ -1,0 +1,1 @@
+document.querySelectorAll('.manager-nav-row')[0].classList.add('manager-nav-row-hover')

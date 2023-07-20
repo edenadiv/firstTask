@@ -1,15 +1,3 @@
-<?php
-    include 'db.php';
-    include 'config.php';
-
-    session_start();
-
-    if(!isset($_SESSION["user_id"])) {
-        header('Location:'. URL .'index.php'); 
-    }
-        
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +28,7 @@
         <section id="manager-header-wrapper">
             <a href="#"><img id="manager-logo" src="images/logo.png" alt=""></a>
             <div id="manager-prefences-container">
-                <a href="manager_settings.php" class="manager-prefences-icon">
+                <a href="manager_settings.html" class="manager-prefences-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="svg-icon bi bi-person-fill" viewBox="0 0 16 16">
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
@@ -53,7 +41,7 @@
                             d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
                     </svg>
                 </a>
-                <a href="logout.php" class="manager-prefences-icon">
+                <a href="#" class="manager-prefences-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="svg-icon bi bi-box-arrow-right" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -68,14 +56,14 @@
     <main id="manager-main">
         <aside id="manager-aside">
             <div id="manager-nav">
-                <a href="manager.php" class="manager-nav-row"><span class="manager-nav-icon">
+                <a href="manager.html" class="manager-nav-row"><span class="manager-nav-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-layout-wtf" viewBox="0 0 16 16">
                             <path
                                 d="M5 1v8H1V1h4zM1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1H1zm13 2v5H9V2h5zM9 1a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H9zM5 13v2H3v-2h2zm-2-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3zm12-1v2H9v-2h6zm-6-1a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H9z" />
                         </svg>
                     </span><span>Dashboard</span></a>
-                <a href="manager_list.php" class="manager-nav-row"><span class="manager-nav-icon">
+                <a href="manager_list.html" class="manager-nav-row"><span class="manager-nav-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-list-ul" viewBox="0 0 16 16">
                             <path fill-rule="evenodd"
@@ -106,84 +94,36 @@
                     <div id="manager-cards-container">
                         <div id="manager-card-row-1">
                             <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 1";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
+                                <img src="images/hamburger.jpg" alt="">
+                                <div>Meal Name</div>
                             </div>
                             <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 4";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
+                                <img src="images/hamburger.jpg" alt="">
+                                <div>Meal Name</div>
                             </div>
                             <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 5";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
+                                <img src="images/hamburger.jpg" alt="">
+                                <div>Meal Name</div>
                             </div>
                         </div>
                         <div id="manager-card-row-2">
-                        <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 6";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
+                            <div class="manager-card">
+                                <img src="images/hamburger.jpg" alt="">
+                                <div>Meal Name</div>
                             </div>
                             <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 7";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
+                                <img src="images/hamburger.jpg" alt="">
+                                <div>Meal Name</div>
                             </div>
                             <div class="manager-card">
-                                <?php
-                                    $query = "SELECT * FROM tbl_201_meal WHERE meal_id = 8";
-                                    $result = mysqli_query($connection,$query);
-                                    $row = mysqli_fetch_array($result);
-
-                                    if(is_array($row)) {
-                                        echo '<img src="'.$row['photo_src'].'" alt="">';
-                                        echo '<div>'.$row['name'].'</div>';
-                                    }
-                                ?>
+                                <img src="images/hamburger.jpg" alt="">
+                                <div>Meal Name</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div id="manager-main-aside">
-                    <div class="manager-prefences-icon hover"></div>
+                    <div class="manager-prefences-icon"></div>
                     <div class="manager-prefences-icon"></div>
                     <div class="manager-prefences-icon"></div>
                     <div class="manager-prefences-icon"></div>
