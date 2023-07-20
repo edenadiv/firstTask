@@ -38,7 +38,7 @@
 <body>
     <header id="manager-header">
         <section id="manager-header-wrapper">
-            <a href="#"><img id="manager-logo" src="images/logo.png" alt=""></a>
+            <a href="manager.php"><img id="manager-logo" src="images/logo.png" alt=""></a>
             <div id="manager-prefences-container">
                 <a href="manager_settings.html" class="manager-prefences-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -46,7 +46,7 @@
                         <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
                     </svg>
                 </a>
-                <a href="#" class="manager-prefences-icon">
+                <a href="manager_settings.php" class="manager-prefences-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="svg-icon bi bi-gear-fill" viewBox="0 0 16 16">
                         <path
@@ -101,46 +101,57 @@
             </div>
         </aside>
         <section id="manager-main-area">
-            <section id="manager-main-section-1">
-                <div id="manager-main-aside">
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
-                    <div class="manager-prefences-icon"></div>
-                </div>
-                <div id="manager-main-area-container">
-                    <div id="manager-cards-container">
-                        <div id="manager-card-row-1">
-                            
-                              <?php
-                              $counter = 0;
-                                $query = "SELECT * FROM tbl_201_meal WHERE owner = ".'"'.$_SESSION['user_name'].'"'.'limit 6';
-                                $result = mysqli_query($connection,$query);
-                                // $row = mysqli_fetch_array($result);
-                                while($row=mysqli_fetch_assoc($result)) {
-                                    if(is_array($row)) {
-                                        $counter++;
-                                        echo '<div class="manager-card">';
-                                            echo '<div class="meal_id_manager_card" style="display:none">'.$row['meal_id'].'</div>';
-                                            echo '<img src="'.$row['photo_src'].'" alt="">';
-                                            echo '<div>'.$row['name'].'</div>';
-                                        echo '</div>';
-                                    }
-                                }
+        <div class="container mt-5">
+  <h2>Restaurant Dish Form</h2>
+  <form method="post" action="#">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" name="description" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="dish_type">Dish Type:</label>
+      <input type="text" class="form-control" id="dish_type" name="dish_type" required>
+    </div>
+    <div class="form-group">
+      <label for="photo_src">Photo Source:</label>
+      <input type="text" class="form-control" id="photo_src" name="photo_src" required>
+    </div>
+    <div class="form-group">
+      <label for="ingredients">Ingredients:</label>
+      <textarea class="form-control" id="ingredients" name="ingredients" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="icon_src">Icon Source:</label>
+      <input type="text" class="form-control" id="icon_src" name="icon_src" required>
+    </div>
+    <div class="form-group">
+      <label for="owner">Owner:</label>
+      <input type="text" class="form-control" id="owner" name="owner" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 
-                                if ($counter!=6) {
-                                    while ($counter != 6) {
-                                        ++$counter;
-                                        echo '<div class="manager-card">';
-                                        echo '<img src="images/logo.png" alt="">';
-                                        echo '<div>Coming Soon</div>';
-                                        echo '</div>';
-                                    }
-                                }
-                              ?>
-                    </div>
-                </div>          
-            </section>
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = $_POST["name"];
+        $description = $_POST["description"];
+        $dish_type = $_POST["dish_type"];
+        $photo_src = $_POST["photo_src"];
+        $ingredients = $_POST["ingredients"];
+        $icon_src = $_POST["icon_src"];
+        $owner = $_POST["owner"];
+
+        $query = "INSERT INTO tbl_201_meal (name, description, dish_type, photo_src, ingredients, icon_src, owner) 
+        VALUES ('$name', '$description', '$dish_type', '$photo_src', '$ingredients', '$icon_src', '$owner')";
+        $result = mysqli_query($connection,$query);
+    }
+?>
+        </section>
             <div id="manager-main-bottom">
 
             </div>
