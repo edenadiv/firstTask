@@ -104,57 +104,61 @@
             <div id="manager-list-area">
                 <div id="settings-form" class="container mt-5">
                     <div class="row justify-content-center">
-                        <div class="col-md-6">
-                            <form>
-                                <!-- First row -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="firstName">First Name:</label>
-                                        <input type="text" class="form-control" id="firstName"
-                                            placeholder="Enter your first name">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="lastName">Last Name:</label>
-                                        <input type="text" class="form-control" id="lastName"
-                                            placeholder="Enter your last name">
-                                    </div>
-                                </div>
-                                <!-- Second row -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email"
-                                            placeholder="Enter your email">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="password">Password:</label>
-                                        <input type="password" class="form-control" id="password"
-                                            placeholder="Enter your password">
-                                    </div>
-                                </div>
-                                <!-- Third row -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="age">Age:</label>
-                                        <input type="number" class="form-control" id="age" placeholder="Enter your age">
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="restaurantName">Restaurant Name:</label>
-                                        <input type="text" class="form-control" id="restaurantName"
-                                            placeholder="Enter restaurant name">
-                                    </div>
-                                </div>
-                                <!-- Fourth row -->
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="restaurantAddress">Restaurant Address:</label>
-                                        <input type="text" class="form-control" id="restaurantAddress"
-                                            placeholder="Enter restaurant address">
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-                        </div>
+                       
+                    <div class="container mt-5">
+  <h2>User Update Form</h2>
+  <?php
+
+    $user = [
+    'id' => $_SESSION['user_id'],
+      'first_name' => 'John',
+      'last_name' => 'Doe',
+      'email' => 'john.doe@example.com',
+      'password' => 'null',
+      'age' => 30,
+      'type' => $_SESSION['user_type']
+    ];
+  ?>
+  <form method="post" action="#">
+    <div class="form-group">
+      <label for="first_name">First Name:</label>
+      <input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo $user['first_name']; ?>" required>
+    </div>
+    <div class="form-group">
+      <label for="last_name">Last Name:</label>
+      <input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $user['last_name']; ?>" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" value="<?php echo $user['email']; ?>" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="number" class="form-control" id="age" name="age" value="<?php echo $user['age']; ?>" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+
+<?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $user_id = $_SESSION['user_id'];
+        $first_name = $_POST["first_name"];
+        $last_name = $_POST["last_name"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $age = $_POST["age"];
+
+        $query = "UPDATE tbl_201_person SET first_name='$first_name', last_name='$last_name', email='$email', password='$password', age=$age WHERE id=$user_id";
+        $result = mysqli_query($connection,$query);
+        if($result) {echo 'User Updated';}
+    }
+?>
+
                     </div>
                 </div>
             </div>

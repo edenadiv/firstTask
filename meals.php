@@ -67,48 +67,24 @@
                     <p class="card-text">There is no meals <br> available currently</p>
                 </div>
             </div> -->
-            <a href="./productTemplate.html" id="add-new-meal" class="card">
-                <img style="width: 60px; " src="files/svgs/plus-lg.svg" class="card-img-top" alt="">
-                <!-- <div class="card-body">
-                    <p class="card-text">Pasta Cream</p>
-                </div> -->
-            </a>
-            <div id="cream-pasta-card" class="card">
-                <img src="images/cream-pasta.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p class="card-text">Pasta Cream</p>
-                </div>
-            </div>
-            <div id="tomato-pasta-card" class="card">
-                <img src="images/tomato-pasta.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p class="card-text">Tomato Pasta</p>
-                </div>
-            </div>
-            <div id="schnizel-card" class="card">
-                <img src="images/schnitzel.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p class="card-text">Schnitzel</p>
-                </div>
-            </div>
-            <div id="ramen-card" class="card">
-                <img src="images/ramen.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p class="card-text">Ramen</p>
-                </div>
-            </div>
-            <div id="soup-card" class="card">
-                <img src="images/soup.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p class="card-text">Soup</p>
-                </div>
-            </div>
-            <div id="pizza-card" class="card">
-                <img src="images/pizza.jpg" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p class="card-text">Pizza</p>
-                </div>
-            </div>
+            <?php
+
+$query = "SELECT * FROM tbl_201_meal";
+$result = mysqli_query($connection,$query);
+// $row = mysqli_fetch_array($result);
+while($row=mysqli_fetch_assoc($result)) {
+    if(is_array($row)) {
+        echo '
+        <a href="productPage.php?meal_id='.$row['meal_id'].'">
+        <div id="cream-pasta-card" class="card">
+        <img src="'.$row['photo_src'].'" class="card-img-top" alt="">
+        <div class="card-body">
+            <p class="card-text">'.$row['name'].'</p></div></div>
+        </a>';
+    }
+}
+
+            ?>
         </div>
     </div>
     <script src="js/functions.js"></script>

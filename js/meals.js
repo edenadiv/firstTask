@@ -49,33 +49,9 @@ icon.addEventListener('click', function () {
 const pastaCream = document.querySelector("#cream-pasta-card")
 console.log(pastaCream)
 pastaCream.addEventListener("click",()=>{
-    location.replace(`./productPage.php?mealIndex=${"0"}`)
+    window.location.href(`./productPage.php?mealIndex=${"0"}`)
 })
 
-const tomatoPasta = document.querySelector("#tomato-pasta-card")
-tomatoPasta.addEventListener("click",()=>{
-    location.replace(`./productPage.php?mealIndex=${"1"}`)
-})
-
-const schnitzel = document.querySelector("#schnizel-card")
-schnitzel.addEventListener("click",()=>{
-    location.replace(`./productPage.php?mealIndex=${"8"}`)
-})
-
-const ramen = document.querySelector("#ramen-card")
-ramen.addEventListener("click",()=>{
-    location.replace(`./productPage.php?mealIndex=${"5"}`)
-})
-
-const soup = document.querySelector("#soup-card")
-soup.addEventListener("click",()=>{
-    location.replace(`./productPage.php?mealIndex=${"9"}`)
-})
-
-const pizza = document.querySelector("#pizza-card")
-pizza.addEventListener("click",()=>{
-    location.replace(`./productPage.php?mealIndex=${"4"}`)
-})
 
 
 

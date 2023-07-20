@@ -104,7 +104,7 @@
             <div id="manager-list-area">
                 <div id="manager-list-bar">
                     <div>
-                        <button type="button" class="btn btn-secondary">Sort By Name</button>
+                        <button id="sort-btn" type="button" class="btn btn-secondary">Sort By Name</button>
                     </div>
                     <div>
                         <div class="input-group mb-3">
@@ -120,6 +120,7 @@
                         </div>
                     </div>
                 </div>
+                <div id='list-container'>
                 <?php
                     $query = "SELECT * FROM tbl_201_meal WHERE owner = 'Noa'";
                     $result = mysqli_query($connection,$query);
@@ -157,6 +158,7 @@
                 </div>';
                 }
                 ?>
+                </div>
             </div>
             <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="add_meal.php">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">

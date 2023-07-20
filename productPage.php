@@ -55,7 +55,38 @@
         </div>
     </header>
     <main id="product-page-container">
-        <section id="product-page-section">
+        <?php
+            $query = "SELECT * FROM tbl_201_meal WHERE meal_id=".$_GET['meal_id'] ;
+            $result = mysqli_query($connection,$query);
+            $row = mysqli_fetch_array($result);
+            if(is_array($row)) {
+
+            echo '
+            <section id="product-page-section">
+            <div id="product-top">
+                <img id="product-img" src="'.$row['photo_src'].'" alt="">
+            </div>
+            <div id="product-bottom">
+                <div>
+                    <div id="product-bottom-first">
+                        <h2>'.$row['name'].'</h2>
+                        <h5 id="course-type">'.$row['dish_type'].'</h5>
+                        <p>'.$row['description'].'</p>
+                    </div>
+                    <h5>Ingredients</h5>
+                    <p>'.$row['ingredients'].'</p>
+                </div>
+                <div>
+                    <!-- make this btn in js -->
+                    <div id="confirm-btn-product" style="color:#017AFE">Confirm</div>
+                    <div style="display: none;" id="product-icon"></div>
+                </div>
+            </div>
+        </section>
+            ';
+        }
+        ?>
+        <!-- <section id="product-page-section">
             <div id="product-top">
                 <img id="product-img" src="./images/cream-pasta.jpg" alt="">
             </div>
@@ -72,12 +103,12 @@
                     <p>Pasta, cream, butter, garlic, Parmesan cheese, salt, black pepper.</p>
                 </div>
                 <div>
-                    <!-- make this btn in js -->
+
                     <div id="confirm-btn-product" style="color:#017AFE">Confirm</div>
                     <div style="display: none;" id="product-icon"></div>
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script src="js/productPage.js"></script>
